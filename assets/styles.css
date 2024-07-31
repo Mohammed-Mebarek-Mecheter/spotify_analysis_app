@@ -1,0 +1,18 @@
+/* Custom CSS for Streamlit App */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.stApp {
+    background-color: #f5f5f5;
+}
+
+header {
+    color: #1DB954;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}

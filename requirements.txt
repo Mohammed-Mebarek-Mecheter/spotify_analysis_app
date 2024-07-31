@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+plotly
+seaborn
+matplotlib
+scikit-learn
+networkx
+altair
+chardet
+streamlit-aggrid
