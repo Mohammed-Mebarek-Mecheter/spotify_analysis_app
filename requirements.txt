@@ -1,6 +1,5 @@
 altair==4.2.2
 chardet==5.2.0
-folder_structure==0.1.5
 numpy==2.0.1
 pandas==2.2.2
 plotly==5.23.0
