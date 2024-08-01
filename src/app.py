@@ -9,7 +9,6 @@ from external_factors import external_factors
 from ml_model import train_model, predict_popularity
 from recommendation_system import create_embeddings, get_recommendations
 import pandas as pd
-from datetime import datetime
 import chardet
 from st_aggrid import AgGrid, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
@@ -18,6 +17,13 @@ from streamlit_lottie import st_lottie
 import json
 
 st.set_page_config(layout="wide", page_title="Spotify 2024 Analysis")
+
+# Load custom CSS
+def load_css(file_path: str):
+    with open(file_path) as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+# Apply custom CSS
+load_css("assets/styles.css")
 
 # Load Lottie animation
 def load_lottie_file(filepath: str):
@@ -221,24 +227,39 @@ def load_lottie_file(filepath: str):
 # Load Lottie animations
 lottie_github = load_lottie_file("assets/images/github1.json")
 lottie_linkedin = load_lottie_file("assets/images/linkedin.json")
-lottie_portfolio = load_lottie_file("assets/images/portfolio1.json")
+lottie_portfolio = load_lottie_file("assets/images/portfolio.json")
 
 st.markdown(
     """
     <div style='text-align: center;'>
-        <h3>Made with ❤️ by Mebarek</h4>
+        <h3>Made with ❤️ by Mebarek</h3>
         <p>Connect with me:</p>
-        <a href='https://github.com/Mohammed-Mebarek-Mecheter/' target='_blank'>GitHub</a> |
-        <a href='https://www.linkedin.com/in/mohammed-mecheter/' target='_blank'>LinkedIn</a> |
-        <a href='https://mebarek.pages.dev/' target='_blank'>Portfolio</a>
     </div>
     """, unsafe_allow_html=True
 )
 
+# Display Lottie animations and social media links side by side
+col1, col2, col3, col4, col5, col6 = st.columns(6)
+
+with col1:
+    st_lottie(lottie_github, height=50, width=50, key="lottie_github")
+with col2:
+    st.markdown("<a href='https://github.com/Mohammed-Mebarek-Mecheter/' target='_blank'>GitHub</a>", unsafe_allow_html=True)
+
+with col3:
+    st_lottie(lottie_linkedin, height=50, width=50, key="lottie_linkedin")
+with col4:
+    st.markdown("<a href='https://www.linkedin.com/in/mohammed-mecheter/' target='_blank'>LinkedIn</a>", unsafe_allow_html=True)
+
+with col5:
+    st_lottie(lottie_portfolio, height=50, width=50, key="lottie_portfolio")
+with col6:
+    st.markdown("<a href='https://mebarek.pages.dev/' target='_blank'>Portfolio</a>", unsafe_allow_html=True)
+
 st.markdown(
     """
     <div style='text-align: center;'>
-        <p>Data source: <a href="https://datainmotion.co">Data in Motion</a> | Last updated: July 31, 2024</p>
+        <p>Data source: <a href="https://datainmotion.co">Data in Motion</a> | Last updated: August 01, 2024</p>
     </div>
     """, unsafe_allow_html=True
 )
