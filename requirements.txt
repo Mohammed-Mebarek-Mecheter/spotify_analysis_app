@@ -8,3 +8,4 @@ streamlit==1.37.0
 streamlit_lottie==0.0.5
 torch==2.4.0
 transformers==4.43.3
+streamlit-aggrid

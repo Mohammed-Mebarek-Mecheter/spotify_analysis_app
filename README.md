@@ -4,6 +4,8 @@
 
 This Streamlit app is designed to analyze the trends and characteristics of the most streamed songs on Spotify in 2024. The goal is to enhance user experience, improve recommendations, and optimize playlist curation by uncovering key factors contributing to high stream counts. This app provides actionable insights for marketing and curation teams, ultimately enhancing user engagement through improved recommendations and playlist curation.
 
+Check out the live app: [Spotify Analysis App](https://spotify-music.streamlit.app/)
+
 ## Features and Components
 
 ### 1. Elegant and Impressive Design
@@ -96,14 +98,9 @@ spotify_analysis_app/
 ├── .gitignore
 ├── assets/
 │   ├── images/
-│   │   ├── github.gif
-│   │   ├── github.json
-│   │   ├── linkedin.gif
-│   │   ├── linkedin.json
-│   │   ├── portfolio.gif
-│   │   ├── portfolio.json
-│   │   ├── spotify.gif
-│   │   ├── spotify.json
+│   │   ├── .gif
+│   │   ├── .json
+│   │   ├── ...
 │   ├── styles.css
 ├── data/
 │   ├── spotify_2024_top_streamed.csv
@@ -165,9 +162,9 @@ spotify_analysis_app/
 
 For any questions or feedback, please reach out to the developer:
 
-- **GitHub**: [https://github.com/Mohammed-Mebarek-Mecheter/](https://github.com/Mohammed-Mebarek-Mecheter/)
-- **LinkedIn**: [https://www.linkedin.com/in/mohammed-mecheter/](https://www.linkedin.com/in/mohammed-mecheter/)
-- **Portfolio**: [https://mebarek.pages.dev/](https://mebarek.pages.dev/)
+- **GitHub**: [Mohammed-Mebarek-Mecheter](https://github.com/Mohammed-Mebarek-Mecheter/)
+- **LinkedIn**: [mohammed-mecheter](https://www.linkedin.com/in/mohammed-mecheter/)
+- **Portfolio**: [Mebarek](https://mebarek.pages.dev/)
 
 ## License
 
