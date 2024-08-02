@@ -1,20 +1,31 @@
 /* Custom CSS for Streamlit App */
 body {
     font-family: Arial, sans-serif;
+    background-color: #000; /* Spotify's dark background color */
+    color: #FFFFFF; /* White text */
+    margin: 0;
+    padding: 0;
 }
 
 .stApp {
-    background-color: #191414; /* Spotify's dark background color */
+    background-color: #000; /* Spotify's dark background color */
+    color: #FFFFFF; /* White text */
 }
 
 header {
     color: #1DB954; /* Spotify's green color */
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
 }
 
 footer {
     text-align: center;
     padding: 20px;
     color: #1DB954; /* Spotify's green color */
+    border-top: 1px solid #1DB954; /* Green border on top */
+    margin-top: 20px;
 }
 
 /* Additional Streamlit keys */
@@ -26,7 +37,24 @@ footer {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.stButton > button:hover {
+    background-color: #14833b; /* Darker green on hover */
+     /* Darker text on hover */
+    color: #000;
+}
+
+.stButton > button:active {
+    background-color: #14833b; /* Darker green on active */
+    border: 2px solid #FFFFFF; /* White border on active */
+}
+
+.stButton > button:focus {
+    outline: none;
+}
+
 
 .stTextInput > div > input {
     background-color: #282828; /* Darker background for input fields */
@@ -34,24 +62,47 @@ footer {
     border: 1px solid #1DB954; /* Green border */
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 10px;
 }
 
 .stMarkdown {
     color: #FFFFFF; /* White text for markdown content */
 }
 
-.stSidebar {
-    background-color: #1DB954; /* Spotify's green color */
-    color: #FFFFFF; /* White text */
-    width: 250px; /* Adjust sidebar width */
+sidebar {
+    background-color: #1DB954; /* Spotify's green color *//*
+    color: #FFFFFF; *//* White text *//*
+    width: 250px; *//* Adjust sidebar width *//*
 }
 
 .stSidebar .stButton > button {
-    background-color: #1DB954; /* Spotify's green color */
-    color: #FFFFFF; /* White text */
+    background-color: #1DB954; *//* Spotify's green color *//*
+    color: #FFFFFF; *//* White text *//*
     border: none;
     border-radius: 25px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.stSidebar .stButton > button:hover {
+    background-color: #14833b; *//* Darker green on hover *//*
+}
+
+.stSidebar .stTextInput > div > input {
+    background-color: #FFFFFF; *//* White background for input fields in sidebar *//*
+    color: #212121; *//* Dark text *//*
+    border: 1px solid #1DB954; *//* Green border *//*
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+
+
+.st-tab {
+    color: #FFFFFF; /* Text color */
+}
+
+.st-tab:hover {
+    color: #1DB954; /* Hover color */
 }

@@ -2,52 +2,58 @@
 
 import streamlit as st
 import pandas as pd
-import altair as alt
+import plotly.express as px
+import plotly.graph_objects as go
 
 def external_factors(data):
     st.header("External Factors")
 
-    # Correlation with Streaming Counts using Altair
+    # Correlation with Streaming Counts using Plotly
     st.subheader("Correlation with Streaming Counts")
     external_factors = data[['Shazam Counts', 'SiriusXM Spins', 'Spotify Streams', 'Explicit Track']]
-    corr = external_factors.corr().reset_index().melt('index')
-    corr.columns = ['Feature1', 'Feature2', 'Correlation']
+    corr = external_factors.corr()
 
-    heatmap = alt.Chart(corr).mark_rect().encode(
-        x='Feature1:O',
-        y='Feature2:O',
-        color='Correlation:Q',
-        tooltip=['Feature1:O', 'Feature2:O', 'Correlation:Q']
-    ).properties(
+    heatmap = go.Figure(data=go.Heatmap(
+        z=corr.values,
+        x=corr.columns,
+        y=corr.columns,
+        colorscale='greens'
+    ))
+
+    heatmap.update_layout(
         width=700,
-        height=400
+        height=400,
+        title="Correlation with Streaming Counts"
     )
 
-    st.altair_chart(heatmap, use_container_width=True)
+    st.plotly_chart(heatmap, use_container_width=True)
 
-    # Box Plot of Explicit vs. Non-Explicit Streams using Altair
+    # Box Plot of Explicit vs. Non-Explicit Streams using Plotly
     st.subheader("Explicit vs. Non-Explicit Streams")
-    box_plot = alt.Chart(data).mark_boxplot().encode(
-        x='Explicit Track:N',
-        y='Spotify Streams:Q',
-        tooltip=['Explicit Track:N', 'Spotify Streams:Q']
-    ).properties(
+    box_plot = px.box(
+        data,
+        x='Explicit Track',
+        y='Spotify Streams',
+        title="Explicit vs. Non-Explicit Streams",
+        labels={'Explicit Track': 'Explicit Track', 'Spotify Streams': 'Spotify Streams'},
         width=700,
         height=400
     )
 
-    st.altair_chart(box_plot, use_container_width=True)
+    st.plotly_chart(box_plot, use_container_width=True)
 
-    # Scatter Plot of Shazam Counts vs. Stream Counts using Altair
+    # Scatter Plot of Shazam Counts vs. Stream Counts using Plotly
     st.subheader("Shazam Counts vs. Stream Counts")
-    scatter_plot = alt.Chart(data).mark_circle(size=60).encode(
-        x='Shazam Counts:Q',
-        y='Spotify Streams:Q',
-        color='Explicit Track:N',
-        tooltip=['Shazam Counts:Q', 'Spotify Streams:Q', 'Explicit Track:N']
-    ).properties(
+    scatter_plot = px.scatter(
+        data,
+        x='Shazam Counts',
+        y='Spotify Streams',
+        color='Explicit Track',
+        title="Shazam Counts vs. Stream Counts",
+        labels={'Shazam Counts': 'Shazam Counts', 'Spotify Streams': 'Spotify Streams', 'Explicit Track': 'Explicit Track'},
+        size_max=60,
         width=700,
         height=400
     )
 
-    st.altair_chart(scatter_plot, use_container_width=True)
+    st.plotly_chart(scatter_plot, use_container_width=True)

@@ -1,15 +1,16 @@
+# src/app.py
 import streamlit as st
-from data_loader import load_data
-import tempfile
 import os
-from trend_analysis import trend_analysis
-from artist_impact import artist_impact
-from playlist_influence import playlist_influence
-from external_factors import external_factors
-from ml_model import train_model, predict_popularity
-from recommendation_system import create_embeddings, get_recommendations
-import pandas as pd
 import chardet
+import tempfile
+from src.data_loader import load_data
+from src.trend_analysis import trend_analysis
+from src.artist_impact import artist_impact
+from src.playlist_influence import playlist_influence
+from src.external_factors import external_factors
+from src.ml_model import train_model, predict_popularity
+from src.recommendation_system import create_embeddings, get_recommendations
+import pandas as pd
 from st_aggrid import AgGrid, GridUpdateMode
 from st_aggrid.grid_options_builder import GridOptionsBuilder
 from streamlit_lottie import st_lottie
@@ -17,12 +18,12 @@ import json
 
 st.set_page_config(layout="wide", page_title="Spotify 2024 Analysis")
 
-# Load custom CSS
-def load_css(file_path: str):
-    with open(file_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-# Apply custom CSS
-load_css("assets/styles.css")
+# # Load custom CSS from the 'assets/styles.css' file
+# with open('assets/styles.css') as f:
+#     css = f.read()
+#
+# # Inject custom CSS
+# st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
 
 # Load Lottie animation
 def load_lottie_file(filepath: str):
@@ -44,7 +45,6 @@ st.markdown("Analyze the trends, artist impacts, playlist influences, and extern
 @st.cache_data
 def load_cached_data():
     data = load_data("data/spotify_2024_top_streamed.csv")
-    # Ensure 'Release Date' is in datetime format
     data['Release Date'] = pd.to_datetime(data['Release Date'])
     return data
 
@@ -224,7 +224,7 @@ def load_lottie_file(filepath: str):
         return json.load(f)
 
 # Load Lottie animations
-lottie_github = load_lottie_file("assets/images/github1.json")
+lottie_github = load_lottie_file("assets/images/github.json")
 lottie_linkedin = load_lottie_file("assets/images/linkedin.json")
 lottie_portfolio = load_lottie_file("assets/images/portfolio.json")
 
@@ -258,7 +258,7 @@ with col6:
 st.markdown(
     """
     <div style='text-align: center;'>
-        <p>Data source: <a href="https://datainmotion.co">Data in Motion</a> | Last updated: August 01, 2024</p>
+        <p>Data source: <a href="https://datainmotion.co">Data in Motion</a> | Last updated: August 02, 2024</p>
     </div>
     """, unsafe_allow_html=True
 )
